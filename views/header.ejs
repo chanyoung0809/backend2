@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <!-- 모든 문서에서 필요한 초기화 css -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <%# 전달받은 데이터값의 경우가 0과 같지 않을 때 실행할 조건식 %>
+    <%# 보내준 cssFiles를 누락했을 때까지 고려해서 조건문 %>
+    <% if (cssFiles.length !== 0) { %>
+         <%# 보내준 cssFiles 갯수만큼 반복문 돌려서 link 태그 생성 %>
+        <% for( let i = 0; i < cssFiles.length; i++ ) { %>
+            <link rel="stylesheet" href="/css/<%- cssFiles[i] %>">
+        <% } %>
+    <% } %>
+    
+</head>
+<body>
+    <div id="header" class="<%- hClass %>">
+        <div class="center">
+            <h1>logo</h1>
+            <ul class="gnb">
+                <li><a href="/">menu1</a></li>
+                <li><a href="/sub">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+            </ul>
+        </div>
+    </div>

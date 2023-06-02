@@ -1,0 +1,26 @@
+<!-- 메인페이지에서 필요한 데이터를 세팅하는 구간 -->
+<!-- 태그 중간중간에 데이터 작성 가능하긴 하나 정리를 위해 데이터 세팅 구간을 별도로 만들어서 작업해줌 -->
+<%
+    
+    const listData = [
+    {
+        title:"박스제목1",
+        context:"본문 내용 1 입니다."
+    },
+    {
+        title:"박스제목2",
+        context:"본문 내용 2 입니다."
+    },
+    {
+        title:"박스제목3",
+        context:"본문 내용 3 입니다."
+    }];
+    // 이외에도 필요한 데이터 여러 가지 작성 가능
+%>
+
+<% for( let i = 0; i < listData.length; i++ ) { %>
+    <div class="boxs">
+        <h2><%- listData[i].title %></h2>
+        <p><%- listData[i].context %></p>
+    </div>
+<% } %>

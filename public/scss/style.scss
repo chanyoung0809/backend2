@@ -1,0 +1,36 @@
+#header {
+    display: flex;
+    justify-content: center;
+    background-color: #BCF;
+    .center {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:1000px;
+        height: 50px;
+        .gnb {
+            display: flex;
+            > li { 
+                margin:0 20px;
+            }
+        }
+    }
+    &.sub {
+        background-color: #CFB;
+        .center {
+            .gnb {
+                > li {
+                   > a {
+                    color:#0C0;
+                   }
+                }
+            }
+        }
+    }
+}
+#container {
+    .mainContainer {
+        height: 500px;
+        background-color: #FBC;
+    }
+}

@@ -1,0 +1,8 @@
+    <%# 개별적으로 보낼 데이터들만! %>
+    <%- include('header' , {title:"SubPage", hClass:"sub", cssFiles:["sub.css"]}) %>
+    <div id="container">
+        <div class="subContainer">
+            <%- include('mainList') %>
+        </div>
+    </div>
+    <%- include('footer', {jsFiles:["sub.js"]}) %> 

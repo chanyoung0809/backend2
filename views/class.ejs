@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {color: #C00;}
+    </style>
+</head>
+<body>
+    <!-- 
+        ejs tag -> html 태그의 텍스트 내용이나 속성값들을
+        자바스크립트 데이터의 형식으로 바인딩 해줄 때 사용
+
+        ejs 태그 사용시 
+        % 기호 뒤에 -가 붙는 형태는 데이터 출력 시 사용
+        % 기호 뒤에 -가 붙지 않는 형태는 제어문, 변수생성같은 js 작업시 사용
+
+        ejs 태그는 "", '', ``... 어디든 사용 가능
+        다만! 변수 생성 전에 사용은 불가! 
+        Cannot access '변수' before initialization
+    -->
+    <%# ejs태그의 주석 처리 방법입니다 %>
+
+
+    <%  let a = 30; %>
+    <%  let b = "box"; %>
+    <% const userId = "admin" %>
+    
+    <div class="title <%- b %>"> <%- a * 3 %></div>
+    
+    <%# ejs 태그로 조건문 만들기 %>
+
+    <% if(userId !== "admin"){  %>
+    <ul>
+        <li><a href="#">로그인</a></li>
+        <li><a href="#">회원가입</a></li>
+    </ul>
+    <% } else{ %>
+    <ul>
+        <li><a href="#">관리자 메뉴</a></li>
+        <li><a href="#">로그아웃</a></li>
+    </ul>
+    <% }%>
+
+    <% 
+        const menuList = ["메뉴1", "메뉴2", "메뉴3"];
+        const menuDetail = [
+        {
+            name:"MENU1",
+            link:"/"
+        },
+        {
+            name:"MENU2",
+            link:"/sub"
+        },
+        {
+            name:"MENU3",
+            link:"/intro"
+        }
+        ];
+    %>
+
+    <% for(let i =0; i<menuList.length; i++){%>
+        <p><%- menuList[i] %></p>
+    <% } %>
+
+    <% for(let i =0; i<menuDetail.length; i++){%>
+        <div>
+            <h2>박스리스트들</h2>
+            <a href="<%- menuDetail[i].link %>"><%- menuDetail[i].name %></a>
+        </div>
+    <% } %>
+    <ul>
+        <%  menuList.forEach((menu, idx) => { %>
+            <li><%- menu %></li>
+        <%  }) %>
+    </ul>
+</body>
+</html>

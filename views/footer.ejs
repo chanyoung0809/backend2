@@ -1,0 +1,13 @@
+    <div id="footer">
+        <div class="center">하단 영역입니다</div>
+    </div>
+    <%# 전달받은 데이터값의 경우가 0과 같지 않을 때 실행할 조건식 %>
+    <%# 보내준 jsFile를 누락했을 때까지 고려해서 조건문 %>
+    <% if (jsFiles.length !== 0) { %>
+        <%# 보내준 jsFile 갯수만큼 반복문 돌려서 link 태그 생성 %>
+        <% jsFiles.forEach((js, idx) => { %>
+            <script src="/js/<%- js %>"></script>
+        <% }) %>
+    <% } %>
+</body>
+</html>
